@@ -332,6 +332,18 @@ public class TscCommand {
         addStrToCommand(str);
     }
 
+    public void init() {
+        String str = new String();
+        str = "N\r\n";
+        addStrToCommand(str);
+    }
+
+    public void print() {
+        String str = new String();
+        str = "W1\r\n";
+        addStrToCommand(str);
+    }
+
     public void addCodePage(CODEPAGE page) {
         String str = new String();
         str = "CODEPAGE " + page.getValue() + "\r\n";
@@ -364,8 +376,8 @@ public class TscCommand {
 
     public void addText(int x, int y, FONTTYPE font, ROTATION rotation, FONTMUL Xscal, FONTMUL Yscal, String text) {
         String str = new String();
-        str = "TEXT " + x + "," + y + "," + "\"" + font.getValue() + "\"" + "," + rotation.getValue() + ","
-                + Xscal.getValue() + "," + Yscal.getValue() + "," + "\"" + text + "\"" + "\r\n";
+        str = "T" + x + "," + y + "," + rotation.getValue() + "," + font.getValue() + ","
+                + Xscal.getValue() + "," + Yscal.getValue() + ",N," + "\"" + text + "\"" + "\r\n";
         addStrToCommand(str);
     }
 
